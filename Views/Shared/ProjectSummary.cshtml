@@ -1,0 +1,63 @@
+﻿
+@{
+
+}
+@*@model BooksViewModel*@
+
+@model Books
+
+<title>Product Landing Page</title>
+
+
+<div id="main">
+
+
+    <!--Content-->
+    <!--Quote-->
+    <div class="quote">
+        <div class="quote-section">
+            “Reading is a conversation. <br>All books talk.<br> But a good book listens as well.” <br> -Mark Haddon
+        </div>
+    </div>
+    </br>
+    </br>
+    </br>
+    <!--Search bar-->
+    <form class="searchform">
+        <input type="text" placeholder="What are you looking for?">
+        <button type="submit">Search</button>
+    </form>
+
+    <!--First section-->
+    <div class="best-reads">
+
+        <span>&#9830; Recommended Books</span>
+
+        <div class="card card-outline-primary m-1 p-1">
+            <div class="bg-faded p-1">
+                <h4>
+                    @Model.Title
+                    <span class="badge bg-primary" style="float:right">
+                        <small>@Model.Price.ToString("c")</small>
+                    </span>
+                </h4>
+            </div>
+            <div class="card-text p-1">@Model.Author</div>
+            <div class="card-text p-1">@Model.Publisher</div>
+            <div class="card-text p-1">@Model.Classification</div>
+            <div class="card-text p-1">@Model.Category</div>
+            <div class="card-text p-1">@Model.PageCount</div>
+
+
+            <form method="post" asp-page="/Bookends">
+
+                <input type="hidden" asp-for="@Model.BookId" />
+                <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+
+                <span class="card-text">
+                    <button type="submit" class="btn btn-success btn-sm float-end">Add to Cart</button>
+                </span>
+            </form>
+
+        </div>
+

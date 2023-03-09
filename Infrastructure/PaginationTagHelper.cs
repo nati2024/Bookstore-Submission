@@ -46,7 +46,7 @@ namespace Bookstore.Infrastructure
 
             TagBuilder final = new TagBuilder("div");
 
-            for (int i = 1; i < PageBookmarked.TotalPages; i++)
+            for (int i = 1; i <= PageBookmarked.TotalPages; i++)
             {
                 TagBuilder tb = new TagBuilder("a");
 
